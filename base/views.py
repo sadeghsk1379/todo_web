@@ -3,6 +3,7 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.views.generic.list import ListView
 
+from .forms import TaskCreateForm
 from .models import Task
 
 
@@ -19,7 +20,7 @@ class TaskDetail(DetailView):
 
 class TaskCreate(CreateView):
     model = Task
-    fields = "__all__"
+    form_class = TaskCreateForm
     success_url = reverse_lazy("tasks")
 
 
